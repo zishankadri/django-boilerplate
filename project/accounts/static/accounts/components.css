@@ -1,0 +1,75 @@
+
+input[type="email"],
+input[type="password"],
+input[type="text"],
+input[type="number"],
+textarea {
+    background: none;
+    outline: none;
+    font-size: 1rem;
+    font-weight: bold;
+
+    width: 100%;
+    padding: 1em 2em;
+    border-radius: var(--radius-sm);
+    border: 1px solid #000;
+    color: var(--light-grey);
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+    margin:0;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: var(--light-grey);
+    opacity: 1;
+    }
+  /* Internet Explorer 10-11 */
+  :-ms-input-placeholder { color: var(--light-grey); }
+  /* Microsoft Edge */
+  ::-ms-input-placeholder { color: var(--light-grey); }
+
+.input-box {
+    position: relative;
+    margin-top: 1rem;
+
+}
+
+.input-box label {
+    position: absolute;
+    top: 0;left: 0;
+    transform: translate(1em, -50%);
+    background-color: #e9ffd0;
+    padding: 0px 0.5em;
+    color: #58A400;
+}
+
+
+.submit-btn{
+    font-size: 1rem;
+    cursor: pointer;
+    margin: 0 auto;
+}
+
+.submit-btn:hover {
+    background-position: right center; /* change the direction of the change here */
+}
+.link-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    /* text-align: right; */
+    color: var(--text-secondary);
+    /* font-size: 1rem; */
+}
+
+.link{
+    display: block;
+    color: rgb(148, 148, 148);
+    text-align: center;
+    padding: 1em 0px;
+}
+

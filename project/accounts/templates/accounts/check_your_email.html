@@ -1,0 +1,34 @@
+
+{% load static %} 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="{% static 'css/base.css' %}">
+
+</head>
+<body>
+        <div class="main">
+                <h1>A verification Email has been sent to <span class="email"> {{ email }} </span></h1>
+        </div>
+</body>
+</html>
+
+<style>
+.main {
+        display: flex;
+        color: var(--color-dark);
+        align-items: center;
+        justify-content: center;
+        height: calc(100vh);
+}
+.main h1 {
+        font-weight: 300;
+}
+.email {
+        text-decoration: underline;
+}
+</style>

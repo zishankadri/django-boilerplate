@@ -1,0 +1,159 @@
+{% extends 'accounts/base.html' %}
+
+
+{% block head %}
+
+    <!-- LINKS -->
+    {% load static %}
+    {% comment %} <link rel="stylesheet" href="{% static 'accounts/register.css' %}"> {% endcomment %}
+
+{% endblock head %}
+
+
+{% block main %}
+<div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
+    <div class="sm:mx-auto sm:w-full sm:max-w-sm">
+      <a href="/">
+        <img class="mx-auto h-10 w-auto" src="{% static "images/logo.png" %}" alt="Your Company">
+      </a>
+      {% comment %} <a href="/" class="block mx-auto h-10 w-auto text-center italic text-xl font-semibold text-blue-600" src="" alt="Your Company"> Logo </a> {% endcomment %}
+
+      <h2 class="mt-5 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Créer un nouveau compte</h2>
+    </div>
+  
+    <div class="mt-5 sm:mx-auto sm:w-full sm:max-w-sm">
+      <form class="space-y-6" action="#" method="POST">
+        {% csrf_token %}
+        <!-- Email -->
+        <div>
+          <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Email address</label>
+          <div class="mt-2 [&_input]:w-full">
+            {{form.email}}
+          </div>
+        </div>
+        <!-- Password-->
+        <div>
+            <label for="password" class="block text-sm font-medium leading-6 text-gray-900">Password</label>
+            <div class="mt-2 [&_input]:w-full">
+                {{form.password1}}
+            </div>
+        </div>
+        <!-- Confirm password-->
+        <div>
+            <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Confirm password</label>
+            <div class="mt-2 [&_input]:w-full">
+              {{form.password2}}
+            </div>
+        </div>
+        <!-- Subject -->
+        <div>
+          <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Subject</label>
+          <div class="mt-2 [&_input]:w-full">
+            {{form.subject}}
+          </div>
+        </div>
+
+        <div>
+          <button type="submit" class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">S'inscrire</button>
+        </div>
+
+      </form>
+  
+      <p class="mt-10 text-center text-sm text-gray-500">
+        Vous avez déjà un compte?
+        <a href="{% url "login" %}" class="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">Se connecter</a>
+      </p>
+    </div>
+  </div>
+
+{% endblock main %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+
+
+
+<h2>Profile</h2>
+<div class="profile">
+    <div class="profile-info">
+
+        <div class="form-group">
+            <label class="form-label" for="img">Select photo:</label>
+            <input class="form-input" type="file" id="img" name="img" accept="image/*">
+        </div>
+
+        <div class="form-group">
+            <label class="form-label" for="age">Age:</label>
+            <input class="form-input" type="number" id="age" name="age" value="28">
+        </div>
+
+        <div class="form-group">
+            <label class="form-label" for="height">Height(feet):</label>
+            <input class="form-input" type="number" id="height" name="height" value="5.8">
+        </div>
+
+        <div class="form-group">
+            <label class="form-label" for="education">Education:</label>
+            <input class="form-input" type="text" id="education" name="education" value="B.TECH">
+        </div>
+        
+        <div class="form-group">
+            <label class="form-label" for="address">Address:</label>
+            <input class="form-input" type="text" id="address" name="address" value="Kingstone, New York, USA">
+        </div>
+        
+        <div class="form-group">
+            <label class="form-label" for="income">Income($):</label>
+            <input class="form-input" type="number" id="income" name="income" value="1000">
+        </div>
+        
+        <div class="form-group">
+            <label class="form-label" for="profession">Profession:</label>
+            <input class="form-input" type="text" id="profession" name="profession" value="Software Developer at Google">
+        </div>
+        
+        <div class="form-group">
+            <label class="form-label" for="bio">Bio:</label>
+            <textarea class="form-input" id="bio" name="bio" rows="5"></textarea>
+        </div>
+        
+        <div class="form-group">
+            <label class="form-label"></label>
+            <button class="form-input" type="submit">Submit</button>
+        </div>
+    </div>
+</div> -->

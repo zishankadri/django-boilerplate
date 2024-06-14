@@ -1,0 +1,131 @@
+:root {
+    --color-primary: #58A400;
+    --color-primary-hover: #68bd07;
+
+    --color-dark: #142500;
+    --color-dark-hover: #1b3101;
+
+
+    --grey: #6F6F6F;
+    --light-grey: #9A9A9A;
+
+
+    --color-border: rgba(9, 0, 61, 0.15);
+
+    --radius-full: 100rem;
+    --radius-xl: 2rem;
+    --radius-l: 1rem;
+    --radius-m: 0.75rem;
+    --radius-sm: 0.5rem;
+
+}
+
+*{
+    margin: 0px; 
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.light-black {
+    color: #3E3E3E;
+}
+
+/* 
+MAIN
+*/
+/* Messages */
+.messages {
+    position:absolute;
+    display: flex; flex-direction: column;
+    top: 0px;
+    width:100%;
+    gap: 4px;
+    padding: 4px;
+    z-index: 99;
+}
+
+.message{
+    border-radius: var(--radius-secondary);
+    display: flex;
+    justify-content: space-between;
+}
+
+.message-text{
+    padding: 1em;
+    color: var(--dark);
+}
+
+.msg-destroy-btn {
+    padding: 0.5em 1em;
+    font-size: 1rem;
+    background-color: rgba(0, 0, 0, 0.1);
+    border: none;
+    outline: none;
+    color: var(--dark);
+}
+    .msg-destroy-btn:hover{ 
+        background-color: rgba(0, 0, 0, 0.2);
+    }
+
+.messages .error   { background-color: rgba(255, 112, 112, 0.9); }
+.messages .info    { background-color: rgba(134, 207, 255, 0.9); }
+.messages .success { background-color: rgba(90, 255, 145, 0.9); }
+
+
+
+@media (min-width: 1500px) {
+    html{
+        font-size: 18px;
+    }
+}
+
+/* Responsive Navigation Bar */
+@media (max-width: 1100px) {
+    html{ font-size: 14px; }
+    .main { padding: 0rem 2rem;}
+
+    nav {
+        flex-direction: column;
+        justify-content: flex-start;
+        gap: 0px;
+    }
+    nav ul {
+        flex-direction: column;
+        justify-content: flex-start;
+        gap: 0px;
+
+    }
+
+    .hamburger {
+        display: flex;
+    }
+    .nav-links{
+        display: none;
+        gap: 0px;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+    }
+    .nav-links li a{
+        padding: 1em;
+        border-radius: 0;
+        display: flex;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .nav-links.active {
+        display: flex;
+        background-color: var(--mid);
+        border-top: 1px solid var(--color-light);
+    }
+    .nav-links:first-child {
+        /* margin-top: 4rem; */
+    }
+
+}
+
+@media (max-width: 500px) {
+    .main { padding: 0rem 1rem;}
+}

@@ -1,0 +1,63 @@
+
+
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4rem 0;
+    background: linear-gradient(#8BDF1100, #8BDF11);
+    min-height: 100vh;
+}
+
+* {
+    /* border: 1px solid red; */
+}
+
+.container {
+    max-width: 440px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2em;
+}
+
+.top-circle {
+    padding: 6rem 0;
+    
+    width: 100%;
+    border-radius: 50%;
+    background-color: #58A400;
+    display: flex; flex-direction: column;
+    align-items: center;
+    color: white;
+}
+.top-circle h2 {
+    letter-spacing: 3px;
+}
+.top-circle h3 {
+    margin: 1em 0;
+}
+
+.select-user-type {
+    background-color: white;
+    padding: 0.5em 1em;
+    border-radius: var(--radius-m);
+
+    & .button-grey {
+        border: none;
+    }
+}
+
+.basic-details, .province-and-city  {
+    display: flex; flex-direction: column;
+    gap: 1em;
+    background-color: rgb(255, 255, 255, 0.7);
+    background-color: #e9ffd0;
+    padding: 2em;
+    border-radius: var(--radius-xl);
+}
+.input-box label {
+    background-color: #e9ffd0;
+    color: #58A400;
+}
+

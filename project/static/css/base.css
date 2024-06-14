@@ -1,0 +1,13 @@
+
+:root {
+    --nav-height: 5rem; /* 70px */
+    --full-height: calc(100vh - var(--nav-height));
+}
+
+nav {
+    height: var(--nav-height);
+}
+
+.full-height {
+    height: var(--full-height);
+}

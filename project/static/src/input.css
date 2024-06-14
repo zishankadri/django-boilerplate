@@ -1,3 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Handlee&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pangolin&display=swap');
+
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+@layer base {
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+}
+
+nav {
+    @apply flex-col justify-start gap-0;
+    @apply sm:flex-row sm:justify-between sm:gap-4;
+}
+nav ul {
+    @apply flex-col justify-start gap-0;
+    @apply sm:flex-row sm:gap-4;
+}
+.nav-links {
+@apply hidden w-full text-center flex-col justify-between gap-2 z-10  ;
+@apply sm:flex sm:flex-row;
+/* @apply px-5 py-2.5 rounded-md hover:bg-yellow-500/40 transition-all duration-200 ease-in-out; */
+
+}
+.nav-links a {
+    @apply py-2 px-4 block w-full bg-gray-700 sm:bg-transparent rounded-md;
+    @apply sm:bg-transparent hover:bg-purple-400/20
+}
+  
+
+.regular-input {
+    @apply bg-transparent text-sm rounded-lg block w-full p-2.5 ring-1 ring-inset ring-gray-700 placeholder-gray-400 focus:ring-brand outline-none text-white;
+}
+
+.forum-input {
+    @apply bg-transparent text-sm block w-full placeholder-gray-400 outline-none text-white p-1;
+}
+
+.btn-primary {
+    @apply flex items-center;
+    @apply text-brand-dark bg-brand font-medium rounded-full gap-2 text-sm px-4 py-2 hover:bg-brand-hv;
+    /* @apply text-white bg-blue-700 font-medium rounded-lg text-sm px-6 py-3 hover:bg-blue-800; */
+}
+.btn-primary:disabled {
+    @apply text-white font-medium rounded-lg text-sm px-5 py-2.5 !bg-brand opacity-50 cursor-not-allowed;
+    /* @apply text-gray-200 bg-gray-500 font-medium rounded-lg text-sm px-5 py-2.5; */
+}
+.btn-round {
+    @apply flex items-center p-4;
+    @apply text-brand-dark bg-brand font-medium rounded-full text-sm aspect-square;
+
+}
+
+.btn-secondary {
+    @apply flex text-brand border border-brand font-medium rounded-full text-sm px-5 py-2.5 hover:text-brand-dark hover:bg-brand;
+}
+
+.mycontainer {
+    @apply px-8 lg:px-16 py-4 lg:py-8;
+}
+
+
+.fancy-headline {
+    @apply before:w-2/4 before:h-[1px] before:bg-brand before:absolute before:bottom-0 before:left-0;
+    @apply before:transition-all before:duration-300 before:ease-in-out hover:before:translate-x-full;
+    @apply group-hover/container:before:translate-x-full;
+}
+
+.btn-home {
+    @apply text-cyan-200 bg-[#1d182e] border border-white/30 rounded-full px-6 py-4;
+    @apply hover:bg-[#342b52]
+}

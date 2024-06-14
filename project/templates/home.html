@@ -1,32 +1,21 @@
-{% load compress %}
+{% extends "_base.html" %}
+
 {% load static %}
 
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% block head %} 
+    {% load static %}
     <title>Home</title>
-    
-    <!-- Tailwind CSS -->
-    {% compress css %}
-    <link rel="stylesheet" href="{% static 'src/output.css' %}">
-    {% endcompress %}
+{% endblock head %}
 
-    <!-- Font Awesome -->
-    <link href="{% static 'fontawsome/css/fontawesome.css' %}" rel="stylesheet">
-    <link href="{% static 'fontawsome/css/brands.css' %}" rel="stylesheet">
-    <link href="{% static 'fontawsome/css/solid.css' %}" rel="stylesheet">
 
-    {% block head %}{% endblock head %}
-</head>
-
-<body class="font-poppins bg-[#141020] text-white">
-    <div class="max-w-[800px] m-auto">
-        <div>search</div>
-        Hello
-
+{% block main %}
+    <div class="font-poppins bg-[#141020] text-white">
+        <div class="max-w-[800px] m-auto">
+            <div>search</div>
+            Hello
+        
+        </div>
+        
     </div>
-
-</body>
+{% endblock main %}

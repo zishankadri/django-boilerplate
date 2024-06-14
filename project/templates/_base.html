@@ -1,0 +1,171 @@
+{% load compress %}
+{% load static %}
+
+{% comment %} {% load custom_filters %} {% endcomment %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% comment %} <title>Document</title> {% endcomment %}
+    
+    <!-- Tailwind CSS -->
+    {% compress css %}
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'src/output.css' %}">
+    {% endcompress %}
+
+    <!-- Font Awesome -->
+    <link href="{% static 'fontawsome/css/fontawesome.css' %}" rel="stylesheet">
+    <link href="{% static 'fontawsome/css/brands.css' %}" rel="stylesheet">
+    <link href="{% static 'fontawsome/css/solid.css' %}" rel="stylesheet">
+
+    {% block head %}{% endblock head %}
+</head>
+<body class="bg-[#141020] text-white">
+    <!-- Navigation Bar -->
+    <nav class="relative flex w-full justify-between items-center px-8 top-0 left-0 border-b border-slate-700">
+        {% block nav_logo %}
+        <a href="/" class="h-full flex items-center"> <img src="{% static "images/logo.png" %}" alt="" class="max-h-[45%]"> </a>
+        {% comment %} <a href="/" class="h-full text-center items-center flex"> Logo </a> {% endcomment %}
+
+        {% endblock nav_logo %}
+        <!-- Nav-links --> 
+        <ul id="nav-links" class="nav-links hidden sm:flex justify-between w-full sm:w-auto gap-2 z-10">
+            <li class><a href="/">Home</a></li>
+            <li><a href="/forums/">Forums</a></li>
+            <li><a href="/midi_files/">Midi Files</a></li>
+            <li> <a href="/music_theory/"> Music Theory </a> </li>
+            <li> <a href="/profile/"> Profile </a> </li>
+            {% if request.user.is_superuser %}
+            <li> <a href="/admin_support/"> Support </a> </li>
+            <li> <a href="/admin/table/Chapter/"> Admin </a> </li>
+            {% else %}
+            <li> <a href="/support/"> Support </a> </li>
+            {% endif %}
+        </ul>
+    </nav>
+    
+    <!-- Hamburger menu for smaller devices -->
+    <a href="#" class="hamburger flex sm:hidden">
+        <span></span>
+        <span></span>
+        <span></span>
+    </a>
+
+
+    <!-- <div class="main flex flex-col"> -->
+        
+        {% block main %} {% endblock main %}
+
+    <!-- </div>  -->
+
+
+    {% if messages %}
+    <ul class="messages absolute flex flex-col top-0 items-end w-full gap-1 p-2 z-20 overflow-hidden">
+        {% for message in messages %}
+        <li class="message flex rounded-md justify-between w-96 border border-l-2 text-slate-900 !bg-white z-20
+            {% if message.tags == 'error' %} border-l-red-400 text-red-400 
+            {% elif message.tags == 'info' %} border-l-blue-400 
+            {% elif message.tags == 'success' %} border-l-green-400 
+            {% endif %}
+        ">
+            <span class="message-text p-4 ">
+            {{ message }}
+            </span>
+            <button class="msg-destroy-btn !text-slate-500 p-4 hover:bg-slate-100"><i class="fa-solid fa-x"></i></button>
+        </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+    <footer class="bg-brand-dark">
+        <div class="flex w-full p-8 justify-between mt-8 h-full">
+            <a href="/" class="flex items-center self-center max-w-[20%]"> <img src="{% static "images/logo.png" %}" alt="" class=""> </a>
+
+            <ul class="flex flex-col gap-2 font-light">
+                <h2 class="font-medium">Pages</h2>
+
+                <li class><a href="/">Home</a></li>
+                <li><a href="/forums/">Forums</a></li>
+                <li><a href="/midi_files/">Midi Files</a></li>
+                <li> <a href="/music_theory/"> Music Theory </a> </li>
+                <li> <a href="/profile/"> Profile </a> </li>
+                {% if request.user.is_superuser %}
+                <li> <a href="/admin_support/"> Support </a> </li>
+                <li> <a href="/admin/table/Chapter/"> Admin </a> </li>
+                {% else %}
+                <li> <a href="/support/"> Support </a> </li>
+                {% endif %}
+            </ul>
+
+            <div class="flex flex-col gap-4 font-light">
+                <h2 class="font-medium">Contact</h2>
+                <div> <i class="fa-solid fa-phone w-6 text-center"></i> (406)555-0120 </div>
+                <div> <i class="fa-solid fa-envelope w-6 text-center"></i> egzix@gmail.com </div>
+                <div> <i class="fa-solid fa-location-dot w-6 text-center"></i> 2972 Westheimer Rd. Santa Ana Illinois 85486 </div>
+            </div>
+
+            <div class="flex gap-2 h-full mt-auto">
+                <a href="https://www.instagram.com/" class="text-2xl hover:bg-gray-800 border border-gray-700 aspect-square w-14 rounded-full flex justify-center items-center">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href="/" class="text-2xl hover:bg-gray-800 border border-gray-700 aspect-square w-14 rounded-full flex justify-center items-center">
+                    <i class="fa-brands fa-facebook"></i>
+                </a>
+                <a href="/" class="text-2xl hover:bg-gray-800 border border-gray-700 aspect-square w-14 rounded-full flex justify-center items-center">
+                    <i class="fa-brands fa-linkedin-in"></i>
+                </a>
+                <a href="/" class="text-2xl hover:bg-gray-800 border border-gray-700 aspect-square w-14 rounded-full flex justify-center items-center">
+                    <i class="fa-brands fa-twitter"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="flex flex-col items-center">
+            <p>
+                Copyright {% now "Y" %} © Chord WIzard
+            </p>
+            <p>
+                All Right Reserved.
+            </p>
+        </div>
+    </footer>
+
+</body>
+
+
+<script>
+    {% block script %}{% endblock script %}
+    
+    // Responsive Navbar
+    const hamburger = document.getElementsByClassName("hamburger")[0];
+    // const navLinks = document.getElementsByClassName("nav-links");
+    const navLinks = document.getElementById("nav-links");
+
+    hamburger.addEventListener('click', () => {
+        // for (let i = 0; i < navLinks.length; i++) {
+        //     const element = navLinks[i];
+        //     element.classList.toggle('active');
+        // }
+        navLinks.classList.toggle('active');
+    });
+
+    // Messages
+    const messages = document.getElementsByClassName("message");
+
+    for (let i = 0; i < messages.length; i++) { 
+        const message = messages[i];
+
+        let cutBtn = message.querySelector('.msg-destroy-btn')
+
+        cutBtn.onclick = () => {
+            message.style.display = "none";
+        }
+    }
+
+</script>
+
+
+</html>

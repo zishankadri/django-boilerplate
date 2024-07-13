@@ -23,7 +23,7 @@
 
     {% block head %}{% endblock head %}
 </head>
-<body class="bg-[#141020] text-white">
+<body class="">
     <!-- Navigation Bar -->
     <nav class="relative flex w-full justify-between items-center px-8 top-0 left-0 border-b border-slate-700">
         {% block nav_logo %}
@@ -54,14 +54,11 @@
         <span></span>
     </a>
 
-
-    <!-- <div class="main flex flex-col"> -->
-        
-        {% block main %} {% endblock main %}
-
-    <!-- </div>  -->
+    {% block main %} {% endblock main %}
 
 
+
+    <!-- Manage django-messages -->
     {% if messages %}
     <ul class="messages absolute flex flex-col top-0 items-end w-full gap-1 p-2 z-20 overflow-hidden">
         {% for message in messages %}
@@ -80,7 +77,8 @@
     </ul>
     {% endif %}
 
-    <footer class="bg-brand-dark">
+
+    <footer>
         <div class="flex w-full p-8 justify-between mt-8 h-full">
             <a href="/" class="flex items-center self-center max-w-[20%]"> <img src="{% static "images/logo.png" %}" alt="" class=""> </a>
 
@@ -88,13 +86,10 @@
                 <h2 class="font-medium">Pages</h2>
 
                 <li class><a href="/">Home</a></li>
-                <li><a href="/forums/">Forums</a></li>
-                <li><a href="/midi_files/">Midi Files</a></li>
-                <li> <a href="/music_theory/"> Music Theory </a> </li>
+                <li> <a href="/contact/"> Contact </a> </li>
                 <li> <a href="/profile/"> Profile </a> </li>
                 {% if request.user.is_superuser %}
-                <li> <a href="/admin_support/"> Support </a> </li>
-                <li> <a href="/admin/table/Chapter/"> Admin </a> </li>
+                <li> <a href="/admin/"> Admin </a> </li>
                 {% else %}
                 <li> <a href="/support/"> Support </a> </li>
                 {% endif %}
@@ -102,22 +97,19 @@
 
             <div class="flex flex-col gap-4 font-light">
                 <h2 class="font-medium">Contact</h2>
-                <div> <i class="fa-solid fa-phone w-6 text-center"></i> (406)555-0120 </div>
-                <div> <i class="fa-solid fa-envelope w-6 text-center"></i> egzix@gmail.com </div>
-                <div> <i class="fa-solid fa-location-dot w-6 text-center"></i> 2972 Westheimer Rd. Santa Ana Illinois 85486 </div>
+                <div> <i class="fa-solid fa-phone w-6 text-center"></i> 999-9999-999 </div>
+                <div> <i class="fa-solid fa-envelope w-6 text-center"></i> example@gmail.com </div>
+                <div> <i class="fa-solid fa-location-dot w-6 text-center"></i> 123 Lorem ipsum Rd. Santa Ana Illinois 8989 </div>
             </div>
 
             <div class="flex gap-2 h-full mt-auto">
-                <a href="https://www.instagram.com/" class="text-2xl hover:bg-gray-800 border border-gray-700 aspect-square w-14 rounded-full flex justify-center items-center">
+                <a href="https://www.instagram.com/" class="text-2xl hover:bg-brand/40 border border-gray-700 aspect-square w-14 rounded-full flex justify-center items-center">
                     <i class="fa-brands fa-instagram"></i>
                 </a>
-                <a href="/" class="text-2xl hover:bg-gray-800 border border-gray-700 aspect-square w-14 rounded-full flex justify-center items-center">
-                    <i class="fa-brands fa-facebook"></i>
-                </a>
-                <a href="/" class="text-2xl hover:bg-gray-800 border border-gray-700 aspect-square w-14 rounded-full flex justify-center items-center">
+                <a href="/" class="text-2xl hover:bg-brand/40 border border-gray-700 aspect-square w-14 rounded-full flex justify-center items-center">
                     <i class="fa-brands fa-linkedin-in"></i>
                 </a>
-                <a href="/" class="text-2xl hover:bg-gray-800 border border-gray-700 aspect-square w-14 rounded-full flex justify-center items-center">
+                <a href="/" class="text-2xl hover:bg-brand/40 border border-gray-700 aspect-square w-14 rounded-full flex justify-center items-center">
                     <i class="fa-brands fa-twitter"></i>
                 </a>
             </div>

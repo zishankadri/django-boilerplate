@@ -17,8 +17,9 @@
 }
 
 nav {
-    @apply flex-col justify-start gap-0;
+    @apply flex-col justify-start gap-0 h-20;
     @apply sm:flex-row sm:justify-between sm:gap-4;
+    @apply relative flex w-full justify-between items-center px-8 top-0 left-0 border-b;
 }
 nav ul {
     @apply flex-col justify-start gap-0;
@@ -26,12 +27,13 @@ nav ul {
 }
 .nav-links {
 @apply hidden w-full text-center flex-col justify-between gap-2 z-10  ;
+@apply hidden sm:flex justify-between w-full sm:w-auto gap-2 z-10;
 @apply sm:flex sm:flex-row;
-/* @apply px-5 py-2.5 rounded-md hover:bg-yellow-500/40 transition-all duration-200 ease-in-out; */
 
 }
 .nav-links a {
-    @apply py-2 px-4 block w-full bg-gray-700 sm:bg-transparent rounded-md;
+    /* @apply py-2 px-4 block w-full bg-gray-700 sm:bg-transparent rounded-md; */
+    @apply px-5 py-3 text-gray-700 rounded-md transition-all duration-200 ease-in-out;
     @apply sm:bg-transparent hover:bg-purple-400/20
 }
   

@@ -8,7 +8,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% comment %} <title>Document</title> {% endcomment %}
+    <title>Awesome</title>
     
     <!-- Tailwind CSS -->
     {% compress css %}
@@ -21,28 +21,37 @@
     <link href="{% static 'fontawsome/css/brands.css' %}" rel="stylesheet">
     <link href="{% static 'fontawsome/css/solid.css' %}" rel="stylesheet">
 
-    {% block head %}{% endblock head %}
-</head>
-<body class="">
-    <!-- Navigation Bar -->
-    <nav class="relative flex w-full justify-between items-center px-8 top-0 left-0 border-b border-slate-700">
-        {% block nav_logo %}
-        <a href="/" class="h-full flex items-center"> <img src="{% static "images/logo.png" %}" alt="" class="max-h-[45%]"> </a>
-        {% comment %} <a href="/" class="h-full text-center items-center flex"> Logo </a> {% endcomment %}
+    <!-- Google Font (Poppins) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
-        {% endblock nav_logo %}
-        <!-- Nav-links --> 
-        <ul id="nav-links" class="nav-links hidden sm:flex justify-between w-full sm:w-auto gap-2 z-10">
-            <li class><a href="/">Home</a></li>
-            <li><a href="/forums/">Forums</a></li>
-            <li><a href="/midi_files/">Midi Files</a></li>
-            <li> <a href="/music_theory/"> Music Theory </a> </li>
-            <li> <a href="/profile/"> Profile </a> </li>
+    {% block head %}{% endblock head %}
+
+</head>
+
+
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <a href="/" class="h-full flex items-center"> <img src="{% static "images/logo.png" %}" alt="" class="max-h-[45%]"> </a>
+
+        <ul id="nav-links" class="nav-links">
+
+            <li><a href="/"> Home </a></li>
+            <li><a href="/contact/"> Contact </a></li>
+            <li><a href="/profile/"> Profile </a> </li>
+
             {% if request.user.is_superuser %}
+
             <li> <a href="/admin_support/"> Support </a> </li>
             <li> <a href="/admin/table/Chapter/"> Admin </a> </li>
+
             {% else %}
+
             <li> <a href="/support/"> Support </a> </li>
+
             {% endif %}
         </ul>
     </nav>
@@ -78,7 +87,7 @@
     {% endif %}
 
 
-    <footer>
+    <footer class="border-t">
         <div class="flex w-full p-8 justify-between mt-8 h-full">
             <a href="/" class="flex items-center self-center max-w-[20%]"> <img src="{% static "images/logo.png" %}" alt="" class=""> </a>
 
@@ -115,9 +124,9 @@
             </div>
         </div>
 
-        <div class="flex flex-col items-center">
+        <div class="flex flex-col items-center text-gray-500 font-light">
             <p>
-                Copyright {% now "Y" %} © Chord WIzard
+                Copyright {% now "Y" %} © Zishan Kadri
             </p>
             <p>
                 All Right Reserved.
@@ -133,7 +142,6 @@
     
     // Responsive Navbar
     const hamburger = document.getElementsByClassName("hamburger")[0];
-    // const navLinks = document.getElementsByClassName("nav-links");
     const navLinks = document.getElementById("nav-links");
 
     hamburger.addEventListener('click', () => {
@@ -158,6 +166,4 @@
     }
 
 </script>
-
-
 </html>

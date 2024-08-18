@@ -38,6 +38,15 @@ nav ul {
 }
   
 
+.hamburger {
+    @apply absolute top-4 right-2 w-8 h-5 flex flex-col justify-between z-10
+}
+.hamburger span {
+    @apply h-1 w-full bg-black
+}
+    
+
+
 .regular-input {
     @apply bg-transparent text-sm rounded-lg block w-full p-2.5 ring-1 ring-inset ring-gray-700 placeholder-gray-400 focus:ring-brand outline-none text-white;
 }
@@ -79,4 +88,11 @@ nav ul {
 .btn-home {
     @apply text-cyan-200 bg-[#1d182e] border border-white/30 rounded-full px-6 py-4;
     @apply hover:bg-[#342b52]
+}
+
+
+.gradient-text {
+    /* @apply text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400; */
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-500 px-2;
+    @apply font-instrumentSerif 
 }
